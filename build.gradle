@@ -6,6 +6,7 @@ buildscript {
     repositories {
         maven { url 'https://maven.google.com' }
         jcenter()
+        mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.0-alpha3'
@@ -16,14 +17,23 @@ buildscript {
     }
 }
 
+plugins {
+    id "com.jfrog.bintray" version "1.7.3"
+    id "com.github.dcendents.android-maven" version "1.5"
+}
+
 allprojects {
     repositories {
         maven { url 'https://maven.google.com' }
         jcenter()
         mavenCentral()
     }
+    tasks.withType(Javadoc).all {
+        enabled = false
+    }
 }
 
-task clean(type: Delete) {
+task customClean(type: Delete) {
     delete rootProject.buildDir
 }
+clean.dependsOn customClean

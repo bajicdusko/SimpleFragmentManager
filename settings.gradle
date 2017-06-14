@@ -1,1 +1,1 @@
-include ':app', ':fragmentmanager'
+include ':app', ':fragment-manager'

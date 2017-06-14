@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/EasyFragmentManager.iml" filepath="$PROJECT_DIR$/EasyFragmentManager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SimpleFragmentManager.iml" filepath="$PROJECT_DIR$/SimpleFragmentManager.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/fragmentmanager/easyfragmentmanager.iml" filepath="$PROJECT_DIR$/fragmentmanager/easyfragmentmanager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fragment-manager/fragment-manager.iml" filepath="$PROJECT_DIR$/fragment-manager/fragment-manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fragment-manager/simplefragmentmanager.iml" filepath="$PROJECT_DIR$/fragment-manager/simplefragmentmanager.iml" />
     </modules>
   </component>
 </project>
