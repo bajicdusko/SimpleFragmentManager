@@ -8,7 +8,7 @@ import android.support.v4.app.Fragment
  * Created by Dusko Bajic on 14.06.17.
  * GitHub @bajicdusko
  */
-abstract class EasyFragmentBase<F : FragmentChannel> : Fragment(), IFragment {
+abstract class SFMFragment<F : FragmentChannel> : Fragment(), IFragment {
 
     protected var fragmentChannel: F? = null
 

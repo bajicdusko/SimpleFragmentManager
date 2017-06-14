@@ -5,13 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import com.bajicdusko.fragmentmanager.EasyFragmentBase
+import com.bajicdusko.fragmentmanager.SFMFragment
 
 /**
  * Created by Dusko Bajic on 14.06.17.
  * GitHub @bajicdusko
  */
-class FirstFragment : EasyFragmentBase<ExampleFragmentChannel>() {
+class FirstFragment : SFMFragment<ExampleFragmentChannel>() {
     private val FRAGMENT_NAME: String = "First"
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? =
