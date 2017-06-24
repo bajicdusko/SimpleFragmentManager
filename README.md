@@ -16,7 +16,7 @@ implementation 'com.bajicdusko:fragment-manager:1.0.3'
 ```
 or
 ```
-compile 'com.bajicdusko:kotlin-fragment-manager:1.0.3'
+implementation 'com.bajicdusko:kotlin-fragment-manager:1.0.3'
 ```
 
 ### Usage example
