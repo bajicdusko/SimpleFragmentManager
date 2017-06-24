@@ -5,7 +5,8 @@ Simplified handling of fragments in android application by using wrapper class a
 Detailed explanation is in this __[blog post](http://bajicdusko.com/2017/simplified-fragment-management/)__
 
 
-[![SimpleFragmentManager](https://img.shields.io/badge/Build-1.0.2-green.svg)](https://bintray.com/bajicdusko/maven/fragment-manager/1.0.2/link1)
+[![SimpleFragmentManager](https://img.shields.io/badge/JavaBuild-1.0.3-green.svg)](https://bintray.com/bajicdusko/maven/fragment-manager/1.0.3/link1)
+[![SimpleFragmentManager](https://img.shields.io/badge/KotlinBuild-1.0.3-green.svg)](https://bintray.com/bajicdusko/maven/kotlin-fragment-manager/1.0.3/link1)
 
 ### Installation
 
