@@ -1,14 +1,15 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 
 ext {
     bintrayRepo = 'maven'
-    bintrayName = 'fragment-manager'
+    bintrayName = 'kotlin-fragment-manager'
 
     publishedGroupId = 'com.bajicdusko'
-    libraryName = 'SimpleFragmentManager'
-    artifact = 'fragment-manager'
+    libraryName = 'KotlinSimpleFragmentManager'
+    artifact = 'kotlin-fragment-manager'
 
-    libraryDescription = 'Simplified handling of fragments in android application.'
+    libraryDescription = 'Simplified handling of fragments in android application written in Kotlin.'
 
     siteUrl = 'http://bajicdusko.com/2017/simplified-fragment-management/'
     gitUrl = 'https://github.com/bajicdusko/SimpleFragmentManager.git'
@@ -54,6 +55,7 @@ dependencies {
 
     implementation 'com.android.support:appcompat-v7:25.4.0'
     testImplementation 'junit:junit:4.12'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 }
 repositories {
     mavenCentral()

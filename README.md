@@ -11,7 +11,11 @@ Detailed explanation is in this __[blog post](http://bajicdusko.com/2017/simplif
 
 Gradle
 ```
-implementation 'com.bajicdusko:fragment-manager:1.0.2'
+implementation 'com.bajicdusko:fragment-manager:1.0.3'
+```
+or
+```
+compile 'com.bajicdusko:kotlin-fragment-manager:1.0.3'
 ```
 
 ### Usage example

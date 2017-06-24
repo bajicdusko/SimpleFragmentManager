@@ -1,1 +1,1 @@
-include ':app', ':fragment-manager'
+include ':app', ':kotlin-fragment-manager', ':fragment-manager'

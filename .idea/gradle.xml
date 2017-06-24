@@ -10,6 +10,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/fragment-manager" />
+            <option value="$PROJECT_DIR$/kotlin-fragment-manager" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

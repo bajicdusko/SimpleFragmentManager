@@ -2,4 +2,6 @@
     <string name="app_name">SimpleFragmentManager</string>
     <string name="first">First</string>
     <string name="second">Second</string>
+    <string name="first_java">First Java</string>
+    <string name="second_java">Second Java</string>
 </resources>
