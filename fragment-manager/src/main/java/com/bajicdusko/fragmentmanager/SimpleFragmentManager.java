@@ -1,9 +1,11 @@
 package com.bajicdusko.fragmentmanager;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.text.TextUtils;
 
 /**
  * Created by Dusko Bajic on 24.06.17.
@@ -68,6 +70,24 @@ public class SimpleFragmentManager {
             return ((IFragment) fragmentByTag);
         } else {
             return null;
+        }
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        onActivityResult(requestCode, resultCode, data, null);
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data, String targetTag) {
+        String tag = targetTag;
+        if (TextUtils.isEmpty(tag)) {
+            tag = fragmentTagStack.getActiveTag();
+        }
+
+        if (!TextUtils.isEmpty(tag)) {
+            Fragment fragmentByTag = fragmentManager.findFragmentByTag(tag);
+            if (fragmentByTag != null) {
+                fragmentByTag.onActivityResult(requestCode, resultCode, data);
+            }
         }
     }
 

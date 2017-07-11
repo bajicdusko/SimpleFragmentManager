@@ -1,5 +1,6 @@
 package com.bajicdusko.fragmentmanager.kotlinsample
 
+import android.content.Intent
 import android.support.v7.widget.Toolbar
 import com.bajicdusko.fragmentmanager.R
 import com.bajicdusko.kotlinfragmentmanager.SFMActivity
@@ -28,5 +29,10 @@ class HomeActivity : SFMActivity(), ExampleFragmentChannel {
 
     override fun setToolbarTitle(titleId: Int) {
         supportActionBar?.title = getString(titleId)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        simpleFragmentManager.onActivityResult(requestCode, resultCode, data)
     }
 }

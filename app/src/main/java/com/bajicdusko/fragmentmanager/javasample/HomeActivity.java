@@ -1,5 +1,6 @@
 package com.bajicdusko.fragmentmanager.javasample;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
@@ -39,5 +40,11 @@ public class HomeActivity extends SFMActivity implements ExampleFragmentChannel 
     @Override
     protected int getFrameLayoutContainerId() {
         return R.id.activity_home_fragment_container;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        simpleFragmentManager.onActivityResult(requestCode, resultCode, data);
     }
 }

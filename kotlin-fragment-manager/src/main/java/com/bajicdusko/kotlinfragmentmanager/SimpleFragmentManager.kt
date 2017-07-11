@@ -1,5 +1,6 @@
 package com.bajicdusko.kotlinfragmentmanager
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
@@ -58,6 +59,20 @@ class SimpleFragmentManager(private val fragmentManager: FragmentManager, privat
     }
 
     fun getCurrentFragment(): IFragment? = fragmentManager.findFragmentByTag(fragmentTagStack.activeTag) as IFragment?
+
+    fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        onActivityResult(requestCode, resultCode, data, null)
+    }
+
+    fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?, targetFragmentTag: String?) {
+        var tag = targetFragmentTag
+        if (tag.isNullOrEmpty()) {
+            tag = fragmentTagStack.activeTag
+        }
+
+        var fragmentByTag = fragmentManager.findFragmentByTag(tag)
+        fragmentByTag?.onActivityResult(requestCode, resultCode, data)
+    }
 
     fun dispose() = getCurrentFragment()?.dispose()
 
