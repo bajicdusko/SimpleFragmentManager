@@ -5,7 +5,6 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.bajicdusko.fragmentmanager.IFragment;
 import com.bajicdusko.fragmentmanager.R;
 import com.bajicdusko.fragmentmanager.SFMFragment;
@@ -37,7 +36,7 @@ public class SecondFragment extends SFMFragment<ExampleFragmentChannel> implemen
 
     @Override
     public void setTitle() {
-        fragmenChannel.setToolbarTitle(R.string.second_java);
+      fragmentChannel.setToolbarTitle(R.string.second_java);
     }
 
     @Override

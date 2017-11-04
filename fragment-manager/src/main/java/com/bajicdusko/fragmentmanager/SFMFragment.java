@@ -12,13 +12,13 @@ import android.support.v4.app.Fragment;
 
 public abstract class SFMFragment<F extends FragmentChannel> extends Fragment implements IFragment {
 
-    protected F fragmenChannel;
+  protected F fragmentChannel;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         if (context != null && context instanceof FragmentChannel) {
-            fragmenChannel = (F) context;
+          fragmentChannel = (F) context;
         }
     }
 
@@ -26,7 +26,7 @@ public abstract class SFMFragment<F extends FragmentChannel> extends Fragment im
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getParentFragment() != null && getParentFragment() instanceof FragmentChannel) {
-            fragmenChannel = (F) getParentFragment();
+          fragmentChannel = (F) getParentFragment();
         }
     }
 }

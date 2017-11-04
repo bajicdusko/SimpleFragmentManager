@@ -4,7 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.Log;
-
 import java.util.LinkedList;
 
 /**
@@ -27,6 +26,16 @@ public class FragmentTagStack implements Parcelable {
         p.readStringList(tags);
         activeTag = p.readString();
     }
+
+    public static final Creator<FragmentTagStack> CREATOR = new Creator<FragmentTagStack>() {
+        @Override public FragmentTagStack createFromParcel(Parcel in) {
+            return new FragmentTagStack(in);
+        }
+
+        @Override public FragmentTagStack[] newArray(int size) {
+            return new FragmentTagStack[size];
+        }
+    };
 
     public void setShowLogs(boolean showLogs) {
         this.showLogs = showLogs;
@@ -83,22 +92,7 @@ public class FragmentTagStack implements Parcelable {
         dest.writeString(activeTag);
     }
 
-    public CREATOR CREATOR;
-
     public String getActiveTag() {
         return activeTag;
-    }
-
-    public static class CREATOR implements Creator<FragmentTagStack> {
-
-        @Override
-        public FragmentTagStack createFromParcel(Parcel source) {
-            return new FragmentTagStack(source);
-        }
-
-        @Override
-        public FragmentTagStack[] newArray(int size) {
-            return new FragmentTagStack[0];
-        }
     }
 }

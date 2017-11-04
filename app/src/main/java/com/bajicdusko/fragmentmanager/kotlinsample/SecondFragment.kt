@@ -15,7 +15,9 @@ import com.bajicdusko.kotlinfragmentmanager.SFMFragment
 class SecondFragment : SFMFragment<ExampleFragmentChannel>() {
     private val FRAGMENT_NAME: String = "Second"
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? = inflater?.inflate(R.layout.fragment_second, container, false)
+  override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+      savedInstanceState: Bundle?): View? = inflater.inflate(R.layout.fragment_second, container,
+      false)
 
     override fun onResume() {
         super.onResume()

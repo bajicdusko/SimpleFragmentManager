@@ -5,7 +5,6 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.bajicdusko.fragmentmanager.IFragment;
 import com.bajicdusko.fragmentmanager.R;
 import com.bajicdusko.fragmentmanager.SFMFragment;
@@ -30,7 +29,7 @@ public class FirstFragment extends SFMFragment<ExampleFragmentChannel> implement
         view.findViewById(R.id.fragment_first_bt_open_second).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fragmenChannel.openSecondFragment();
+              fragmentChannel.openSecondFragment();
             }
         });
     }
@@ -48,7 +47,7 @@ public class FirstFragment extends SFMFragment<ExampleFragmentChannel> implement
 
     @Override
     public void setTitle() {
-        fragmenChannel.setToolbarTitle(R.string.first_java);
+      fragmentChannel.setToolbarTitle(R.string.first_java);
     }
 
     @Override

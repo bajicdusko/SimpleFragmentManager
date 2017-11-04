@@ -11,28 +11,28 @@ import com.bajicdusko.kotlinfragmentmanager.SFMActivity
  */
 class HomeActivity : SFMActivity(), ExampleFragmentChannel {
 
-    val toolbar by lazy { findViewById(R.id.activity_home_toolbar) as Toolbar }
+  override fun getFrameLayoutContainerId(): Int = R.id.activity_home_fragment_container
 
-    override fun getFrameLayoutContainerId(): Int = R.id.activity_home_fragment_container
+  override fun onCreate(savedInstanceState: android.os.Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.activity_home)
 
-    override fun onCreate(savedInstanceState: android.os.Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
-        setSupportActionBar(toolbar)
-        simpleFragmentManager.enableLogs(true)
-        simpleFragmentManager.addFragment(FirstFragment.newInstance())
-    }
+    val toolbar: Toolbar = findViewById(R.id.activity_home_toolbar)
+    setSupportActionBar(toolbar)
+    simpleFragmentManager.enableLogs(true)
+    simpleFragmentManager.addFragment(FirstFragment.newInstance())
+  }
 
-    override fun openSecondFragment() {
-        simpleFragmentManager.replaceFragment(SecondFragment.newInstance())
-    }
+  override fun openSecondFragment() {
+    simpleFragmentManager.replaceFragment(SecondFragment.newInstance())
+  }
 
-    override fun setToolbarTitle(titleId: Int) {
-        supportActionBar?.title = getString(titleId)
-    }
+  override fun setToolbarTitle(titleId: Int) {
+    supportActionBar?.title = getString(titleId)
+  }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        simpleFragmentManager.onActivityResult(requestCode, resultCode, data)
-    }
+  override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    super.onActivityResult(requestCode, resultCode, data)
+    simpleFragmentManager.onActivityResult(requestCode, resultCode, data)
+  }
 }

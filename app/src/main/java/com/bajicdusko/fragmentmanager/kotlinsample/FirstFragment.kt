@@ -15,12 +15,14 @@ import com.bajicdusko.kotlinfragmentmanager.SFMFragment
 class FirstFragment : SFMFragment<ExampleFragmentChannel>() {
     private val FRAGMENT_NAME: String = "First"
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-            inflater?.inflate(R.layout.fragment_first, container, false)
+  override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+      savedInstanceState: Bundle?): View? =
+      inflater.inflate(R.layout.fragment_first, container, false)
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (view?.findViewById(R.id.fragment_first_bt_open_second) as Button).setOnClickListener { fragmentChannel?.openSecondFragment() }
+    val button: Button = view.findViewById(R.id.fragment_first_bt_open_second)
+    button.setOnClickListener { fragmentChannel?.openSecondFragment() }
     }
 
     override fun onResume() {
