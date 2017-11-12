@@ -8,5 +8,5 @@ import android.support.annotation.StringRes;
  */
 
 public interface FragmentChannel {
-    void setToolbarTitle(@StringRes int titleId);
+  void setToolbarTitle(@StringRes int titleId);
 }

@@ -1,64 +1,63 @@
 apply plugin: 'com.android.library'
 
 ext {
-    bintrayRepo = 'maven'
-    bintrayName = 'fragment-manager'
+  bintrayRepo = 'maven'
+  bintrayName = 'fragment-manager'
 
-    publishedGroupId = 'com.bajicdusko'
-    libraryName = 'SimpleFragmentManager'
-    artifact = 'fragment-manager'
+  publishedGroupId = 'com.bajicdusko'
+  libraryName = 'SimpleFragmentManager'
+  artifact = 'fragment-manager'
 
-    libraryDescription = 'Simplified handling of fragments in android application.'
+  libraryDescription = 'Simplified handling of fragments in android application.'
 
-    siteUrl = 'http://bajicdusko.com/2017/simplified-fragment-management/'
-    gitUrl = 'https://github.com/bajicdusko/SimpleFragmentManager.git'
+  siteUrl = 'http://bajicdusko.com/2017/simplified-fragment-management/'
+  gitUrl = 'https://github.com/bajicdusko/SimpleFragmentManager.git'
 
-    libraryVersion = '1.0.7'
+  libraryVersion = '1.0.8'
 
-    developerId = 'bajicdusko'
-    developerName = 'Dusko Bajic'
-    developerEmail = 'bajicdusko@gmail.com'
+  developerId = 'bajicdusko'
+  developerName = 'Dusko Bajic'
+  developerEmail = 'bajicdusko@gmail.com'
 
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
+  licenseName = 'The Apache Software License, Version 2.0'
+  licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+  allLicenses = ["Apache-2.0"]
 }
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.2"
+  compileSdkVersion 26
+  buildToolsVersion "26.0.2"
 
 
-    defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 26
-        versionCode 106
-        versionName "1.0.6"
-        multiDexEnabled true
+  defaultConfig {
+    minSdkVersion 14
+    targetSdkVersion 26
+    versionCode 108
+    versionName "1.0.8"
+    multiDexEnabled true
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+  }
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
+  }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    implementation 'com.android.support:multidex:1.0.2'
+  implementation fileTree(dir: 'libs', include: ['*.jar'])
+  androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+    exclude group: 'com.android.support', module: 'support-annotations'
+  })
+  implementation 'com.android.support:multidex:1.0.2'
 
-    implementation "com.android.support:appcompat-v7:$compatVer"
-    testImplementation 'junit:junit:4.12'
+  implementation "com.android.support:appcompat-v7:$compatVer"
+  testImplementation 'junit:junit:4.12'
 }
 repositories {
-    mavenCentral()
+  mavenCentral()
 }
 
 apply from: 'https://raw.githubusercontent.com/bajicdusko/JCenter/master/installv1.gradle'

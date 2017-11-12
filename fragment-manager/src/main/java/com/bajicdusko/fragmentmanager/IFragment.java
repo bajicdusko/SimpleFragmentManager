@@ -7,9 +7,9 @@ package com.bajicdusko.fragmentmanager;
 
 public interface IFragment {
 
-    String getFragmentName();
+  String getFragmentName();
 
-    void setTitle();
+  void setTitle();
 
-    void dispose();
+  void dispose();
 }

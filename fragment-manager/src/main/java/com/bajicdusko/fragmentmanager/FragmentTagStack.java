@@ -13,86 +13,87 @@ import java.util.LinkedList;
 
 public class FragmentTagStack implements Parcelable {
 
-    private static final String TAG = "FragmentStack";
-    private boolean showLogs;
-    private LinkedList<String> tags;
-    private String activeTag;
-
-    public FragmentTagStack() {
-        tags = new LinkedList<>();
+  public static final Creator<FragmentTagStack> CREATOR = new Creator<FragmentTagStack>() {
+    @Override public FragmentTagStack createFromParcel(Parcel in) {
+      return new FragmentTagStack(in);
     }
 
-    public FragmentTagStack(Parcel p) {
-        p.readStringList(tags);
-        activeTag = p.readString();
+    @Override public FragmentTagStack[] newArray(int size) {
+      return new FragmentTagStack[size];
+    }
+  };
+  private static final String TAG = "FragmentStack";
+  private boolean showLogs;
+  private LinkedList<String> tags;
+  private String activeTag;
+
+  public FragmentTagStack() {
+    tags = new LinkedList<>();
+  }
+
+  public FragmentTagStack(Parcel p) {
+    this();
+
+    if (p != null) {
+      p.readStringList(tags);
+      activeTag = p.readString();
+    }
+  }
+
+  public void setShowLogs(boolean showLogs) {
+    this.showLogs = showLogs;
+  }
+
+  public void push(String tag) {
+    tags.add(tag);
+    activeTag = tag;
+    logStack();
+  }
+
+  public String pop() {
+    String tag = peek();
+    if (!TextUtils.isEmpty(tag)) {
+      tags.removeLast();
     }
 
-    public static final Creator<FragmentTagStack> CREATOR = new Creator<FragmentTagStack>() {
-        @Override public FragmentTagStack createFromParcel(Parcel in) {
-            return new FragmentTagStack(in);
-        }
+    activeTag = peek();
+    logStack();
+    return tag;
+  }
 
-        @Override public FragmentTagStack[] newArray(int size) {
-            return new FragmentTagStack[size];
-        }
-    };
-
-    public void setShowLogs(boolean showLogs) {
-        this.showLogs = showLogs;
+  public String peek() {
+    if (tags.size() > 0) {
+      return tags.peekLast();
+    } else {
+      return null;
     }
+  }
 
-    public void push(String tag) {
-        tags.add(tag);
-        activeTag = tag;
-        logStack();
+  private void logStack() {
+    if (showLogs) {
+      StringBuilder stringBuilder = new StringBuilder();
+      stringBuilder.append(String.format("Active tag: %s\nStack:\n", activeTag));
+      for (String tag : tags) {
+        stringBuilder.append(String.format("[ %s ]\n", tag));
+      }
+      Log.d(TAG, stringBuilder.toString());
     }
+  }
 
-    public String pop() {
-        String tag = peek();
-        if (!TextUtils.isEmpty(tag)) {
-            tags.removeLast();
-        }
+  public void popUpAll() {
+    tags.clear();
+  }
 
-        activeTag = peek();
-        logStack();
-        return tag;
-    }
+  @Override public int describeContents() {
+    return 0;
+  }
 
-    public String peek() {
-        if (tags.size() > 0) {
-            return tags.peekLast();
-        } else {
-            return null;
-        }
-    }
+  @Override public void writeToParcel(Parcel dest, int flags) {
+    dest.writeStringList(tags);
+    dest.writeString(activeTag);
+  }
 
-    private void logStack() {
-        if (showLogs) {
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.append(String.format("Active tag: %s\nStack:\n", activeTag));
-            for (String tag : tags) {
-                stringBuilder.append(String.format("[ %s ]\n", tag));
-            }
-            Log.d(TAG, stringBuilder.toString());
-        }
-    }
-
-    public void popUpAll() {
-        tags.clear();
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeStringList(tags);
-        dest.writeString(activeTag);
-    }
-
-    public String getActiveTag() {
-        return activeTag;
-    }
+  public String getActiveTag() {
+    return activeTag;
+  }
 }

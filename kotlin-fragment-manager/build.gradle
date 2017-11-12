@@ -14,7 +14,7 @@ ext {
   siteUrl = 'http://bajicdusko.com/2017/simplified-fragment-management/'
   gitUrl = 'https://github.com/bajicdusko/SimpleFragmentManager.git'
 
-  libraryVersion = '1.0.7'
+  libraryVersion = '1.0.8'
 
   developerId = 'bajicdusko'
   developerName = 'Dusko Bajic'
@@ -33,8 +33,8 @@ android {
   defaultConfig {
     minSdkVersion 14
     targetSdkVersion rootProject.ext.targetSdkVer
-    versionCode 106
-    versionName "1.0.6"
+    versionCode 108
+    versionName "1.0.8"
     multiDexEnabled true
 
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
